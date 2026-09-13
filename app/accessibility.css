@@ -1,0 +1,30 @@
+:root {
+  --bg: #07100d;
+  --accent: #6f8cff;
+  --ink: #eef7f3;
+  --muted: #a7bab4;
+  --surface: color-mix(in srgb, var(--bg) 88%, white 12%);
+  --line: color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+button:focus-visible,
+a:focus-visible {
+  border-radius: 2px;
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

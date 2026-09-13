@@ -52,7 +52,13 @@ export async function GET() {
       .filter(isGitHubRepo)
       .filter((repo) => !repo.fork)
       .slice(0, 6)
-      .map(({ fork: _fork, ...repo }) => repo);
+      .map((repo) => ({
+        name: repo.name,
+        html_url: repo.html_url,
+        description: repo.description,
+        language: repo.language,
+        stargazers_count: repo.stargazers_count,
+      }));
 
     return NextResponse.json(repos, {
       headers: { "Cache-Control": "public, s-maxage=900, stale-while-revalidate=3600" },
